@@ -1,0 +1,47 @@
+.dm-sans-defaultfont {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: auto;
+    font-style: normal;
+  }
+  
+  .navcontainer {
+    display: flex;
+    justify-content: space-between; /* Menyebarkan tautan ke seluruh lebar container */
+    align-items: center; /* Mengatur tautan di tengah vertikal */
+    padding: 30px; /* Padding agar tautan tidak terlalu dekat dengan tepi container */ 
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .navpage {
+    align-items: center;
+    float: right;
+    display: flex;
+  }
+  
+  .navpage a {
+    margin-right: 30px;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    color:#2F1F1C;
+    transition-duration: 0.1s;
+  }
+  
+  .navpage a:hover{
+    text-decoration: underline;
+  }
+  .navpage a:last-child {
+    margin-right: 0px;
+  }
+  
+  .navlogo {
+    width: 150px;
+  }
+  
+  .logo-link {
+    padding: 0; /* Menghapus padding dari tautan logo */
+  }
+  
+  
+  
