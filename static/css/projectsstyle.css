@@ -7,18 +7,7 @@
   margin: 0;
 }
 
-.container {
-    display: flex;
-    justify-content: center; /* Menyebarkan tautan ke seluruh lebar container */
-    align-items: auto; /* Mengatur tautan di tengah vertikal */
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 5%;
-    margin-top: 5%;
-    color: #2F1F1C;
-    max-width: fit-content;
-    max-height: fit-content;
-}
+
 
 body {
     font-family: 'DM Sans';
