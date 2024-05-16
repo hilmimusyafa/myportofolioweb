@@ -11,7 +11,7 @@ from .validators import (
 
 class myprojects(models.Model):
     name                   = models.CharField(max_length=120, blank=True, null=False)
-    imageorganization      = models.ImageField(upload_to='images/')
+    imageorganization      = models.ImageField(upload_to='images/projects')
     organization           = models.CharField(max_length=120, blank=True, null=False)
     year                   = models.CharField(max_length=120, blank=True, null=False)
     description            = models.TextField(blank=True, null=True)
