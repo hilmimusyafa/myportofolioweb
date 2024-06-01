@@ -67,7 +67,7 @@ body {
   flex-direction: column;
   width: clamp(20rem, calc(20rem + 2vw), 22rem);
   overflow: hidden;
-  border: 5px solid #2F1F1C;
+  border: 3px solid #2F1F1C;
 }
 
 .card__body {

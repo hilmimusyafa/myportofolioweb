@@ -55,6 +55,11 @@ form {
   margin:50px auto; 
 }
 
+.style-container {
+  margin-top: 5% !important;
+  margin-bottom: 5% !important;
+}
+
 .centered-form {
   position: absolute;
   top: 50%;
@@ -93,29 +98,7 @@ textarea {
   width: 18rem;
 }
 
-.content {
-  display: flex;
-  justify-content: space-between; /* Menyebarkan tautan ke seluruh lebar container */
-  align-items: center; /* Mengatur tautan di tengah vertikal */
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 1%;
-  margin-top: 0%;
-  color: #2F1F1C;;
-}
 
-.container {
-  display: flex;
-  justify-content: space-between; /* Menyebarkan tautan ke seluruh lebar container */
-  align-items: center; /* Mengatur tautan di tengah vertikal */
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-bottom: 5%;
-  margin-top: 5%;
-  color: #2F1F1C;
-}
-
-/* Social Media Icon */
 
 /* Style all font awesome icons */
 .fa {
