@@ -9,6 +9,26 @@ from .validators import (
 
 # Create your models here.
 
+class skills(models.Model):
+    name                   = models.CharField(max_length=120, blank=True, null=False)
+    percentage             = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.name} ({self.percentage}%)"
+    
+
+class certification(models.Model):
+    name                   = models.CharField(max_length=120, blank=True, null=False)
+    organization           = models.CharField(max_length=120, blank=True, null=False)
+    categorize             = models.CharField(max_length=120, blank=True, null=False)
+    issue_date             = models.DateField(null=True, blank=True)
+    expiry_date            = models.DateField(null=True, blank=True)
+    certificate_id         = models.CharField(max_length=120)
+    url                    = models.URLField(max_length=200, blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.name} from {self.organization}"
+
 class myprojects(models.Model):
     name                   = models.CharField(max_length=120, blank=True, null=False)
     imageorganization      = models.ImageField(upload_to='images/organization')
@@ -24,6 +44,12 @@ class myprojects(models.Model):
     def get_description(self):
         return self.description.split(",")
 
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+        return '/path/to/default/image.jpg'
+
     # def rl_pre_save_receiver(sender, instance, *args, **kwargs):
     #     instance.category = instance.category.capitalize()
     #     if not instance.slug:
@@ -35,6 +61,7 @@ class myprojects(models.Model):
     @property
     def title(self):
         return self.name
+
 
 class Contact(models.Model):
     name = models.CharField(max_length=255)

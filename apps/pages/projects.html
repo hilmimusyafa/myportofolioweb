@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<!-- Static Load -->
+<!-- Static Load & Block Content -->
+{% extends 'pages/main.html' %}
 {% load static %}
-{% include 'navbar/nav.html' %}
+{% block content %}
 
 <!-- Bootsrap Connect -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -16,6 +17,21 @@
 <!-- CSS Style -->
 <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
+<!-- icon Image -->
+<link rel="icon" type="image/png" href="{% static 'img/snip/icon-mini.png' %}">
+
+<style>
+.styled-container div {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.title-styled-container div {
+  margin-top: 0%;
+  margin-bottom: 2%;
+}
+</style>
+
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -25,17 +41,14 @@
   <meta content="" name="keywords">
 </head>
 <body>
-  <div class="container-fluid px-5 my-5">
+  <div class="container-fluid px-5 title-styled-container">
     <div class="row">
       <div class="col text-center">
-        <h1>Projects</h1>
+        <h1>Work & Projects</h1>
       </div>
     </div>
   </div>
-  <div class="title-container">
-    
-  </div>
-  <div class="container-lg mt-5">
+  <div class="container-lg mt-5 styled-container">
     <div class="row row-cols-1 row-cols-md-4 g-4 my-5">
       {% for obj in object_list %}
       {% if obj.slug %}
@@ -46,11 +59,13 @@
             <div class="card" style="border: 5px solid #2F1F1C; width: 18rem; padding: 5% ; background-color :  #DDDDD4;">
               <img src="{{ obj.image_url }}" class="card-img-top" alt="{{ obj.title }}">
                 <div class="card-body">
-                  <h6 class="card-title"><a href='{% url "projects_detail" slug=obj.slug %}' style="text-decoration: none">{{ obj }}</a></h5>
-                  <h7 class="card-title">{{ obj.organization }}</h7><br>
+                  <h6 class="card-title"><h5>{{ obj }}</h5></a></h5>
+                  <h7 class="card-title"><h7>{{ obj.organization }}</h7><br>
                   <h7 class="card-title">{{ obj.year }}</h7>
                   <br>
-                  <button class="arrow-button"></button>
+                  <div class="button-secondary">
+                    <button onclick="location.href='{% url "projects_detail" slug=obj.slug %}';">see more</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -58,3 +73,5 @@
       {% endfor %}
     </div>
   </div>
+</body>
+{% endblock content %}

@@ -17,13 +17,25 @@
 <!-- CSS Style -->
 <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
+<!-- icon Image -->
+<link rel="icon" type="image/png" href="{% static 'img/snip/icon-mini.png' %}">
+
+<style>
+.styled-container div {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.title-styled-container div {
+  margin-top: 0%;
+  margin-bottom: 2%;
+}
+</style>
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Hilmi Musyafa</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
 </head>
 <body>
   <div class="container-fluid">
@@ -34,23 +46,28 @@
       <div class="col-md-6 d-flex align-items-start flex-column justify-content-center full-height">
         <h1>Hello, My Name is <br>Hilmi Musyafa</h1>
         <p>I'm Intermediate of Computer & Network, <br> and also Skilled Multimedia & Graphic Design</p>
-        <button>explore ></button>
+        <div class="button-primary">
+          <button id="scrollButton">explore ></button>
+        </div>
       </div>
     </div>
   </div>
-  <div class="container-fluid px-5">
+  <div class="container-fluid px-5 styled-container">
+    <div id="target"></div>
     <div class="row">
       <div class="col-md-6 d-flex align-items-start flex-column justify-content-center full-height">
         <h1>3 Year Computing & Multimedia Expert</h1>
         <p>Know about my long carreer journey,<br> be an expert isn't short way</p>
-        <button>explore ></button>
+        <div class="button-primary">
+          <button onclick="location.href='{% url "aboutme" %}';">about me ></button>
+        </div>
       </div>
       <div class="col-md-6">
         <img src="{% static 'img/home/me2.JPG' %}" class="img-fluid"></img>
       </div>
     </div>
   </div>
-  <div class="container-fluid px-5">
+  <div class="container-fluid px-5 styled-container">
     <div class="row">
       <div class="col-md-6">
         <img src="{% static 'img/home/me3.jpg' %}" class="img-fluid"></img>
@@ -58,11 +75,13 @@
       <div class="col-md-6 d-flex align-items-start flex-column justify-content-center full-height">
         <h1>Many Project <br> Many Experience</h1>
         <p>I also work with many organizations and people <br> to make charming result, see my project</p>
-        <button>explore ></button>
+        <div class="button-primary">
+          <button onclick="location.href='{% url "projects" %}';">my projects ></button>
+        </div>
       </div>
     </div>
   </div>
-  <div class="container-fluid px-5">
+  <!-- <div class="container-fluid px-5 styled-container">
     <div class="row">
       <div class="col-md-6 d-flex align-items-start flex-column justify-content-center full-height">
         <h1>Let's Connect Together</h1>
@@ -72,6 +91,13 @@
         <button></button>
       </div>
     </div>
-  </div>
+  </div> -->
 </body>
+<!-- JS for Scroll -->
+<script>
+  document.getElementById('scrollButton').addEventListener('click', function() {
+      // Scroll ke elemen dengan ID 'target'
+      document.getElementById('target').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
 {% endblock content %}

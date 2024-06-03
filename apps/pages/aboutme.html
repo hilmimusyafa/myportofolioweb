@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<!-- Static Load -->
+<!-- Static Load & Block Content -->
+{% extends 'pages/main.html' %}
 {% load static %}
-{% include 'navbar/nav.html' %}
+{% block content %}
 
 <!-- Bootsrap Connect -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -16,6 +17,23 @@
 <!-- CSS Style -->
 <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
+<!-- icon Image -->
+<link rel="icon" type="image/png" href="{% static 'img/snip/icon-mini.png' %}">
+
+<style>
+.styled-container div {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+.title-styled-container div {
+  margin-top: 0%;
+  margin-bottom: 2%;
+}
+bg-my-color {
+  background-color: #2F1F1C;
+}
+</style>
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -25,52 +43,71 @@
   <meta content="" name="keywords">
 </head>
 <body>
-  <div class="container-fluid px-5 my-5">
+  <div class="container-fluid px-5 title-styled-container">
     <div class="row">
       <div class="col text-center">
         <h1>About Me</h1>
       </div>
     </div>
-  </div>
-  <div class="title-container">
-    
-  </div>   
-  <div class="container-fluid px-5">
+  </div> 
+  <div class="container-fluid px-5 styled-container">
     <div class="container-xl">
       <div class="row">
         <div class="col-4">
           <img src="{% static 'img/aboutme/me.jpg' %}" class="img-fluid"></img>
         </div>
         <div class="col-8 d-flex align-items-start flex-column justify-content-center full-height">
-          <h2>Knowing About Me</h2>
+          <h2 style="margin-bottom: 20px;">Knowing About Me</h2>
           <p>I have expertise in computers and networking. With experience in networking when I was in vocational school. I am interested in combining networking and Programming knowledge as a Backend-Developer. I also have talent and creativity in Multimedia and Graﬁs Design, since I have been involved in Multimedia projects since high school.</p>
+          <h2 style="margin-bottom: 20px;">Educational Background</h2>
+          <ul>
+            <li><h5>Assalaam Islamic Vocational High School</h5> 2020-2023</li>
+            <small>School of Computing and Networking</small>
+            <li><h5>Undergraduated of Informatics Telkom University</h5> 2023 - now</li>
+            <small>School of Computer Science</small>
+          </ul>
         </div>
       </div>
     </div>
   </div>
-  
-  <div class="container-fluid px-5">
-    <div class="row d-flex align-items-start justify-content-center">
-      <div class="col">
-        <div class="cardz" style="border: 3px solid #2F1F1C; width: 18rem; padding: 5% ; background-color :  #DDDDD4;">
-          <h5 class="card-title">Assalaam Islamic Vocational High School </h5>
-          <img src="{{ obj.image_url }}" class="card-img-top" alt="{{ obj.title }}">
-          <h7 class="card-title"></h7><br>
-          <h7 class="card-title">2020 - 2023</h7>
+  <div class="container-fluid px-5" style="margin-top: 2%; margin-bottom: 2%;">
+    <div class="container-xl">
+      <div class="row ">
+        <div class="col-5">
+          <h2 style="margin-bottom: 20px;">Skills</h2>
+          <div>
+            {% for skill in skills %}
+              <h5>{{ skill.name }}</h5>
+              <br>
+              <div class="progress" style="background-color: #DDDDD4; margin-top: 0px;">
+                <div class="progress-bar bg-my-color" role="progressbar" style="height: 200%; background-color: #2F1F1C; width: {{ skill.percentage }}%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <br>
+            {% endfor %}
+          </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="cardz" style="border: 3px solid #2F1F1C; width: 18rem; padding: 5% ; background-color :  #DDDDD4;">
-          <h5 class="card-title">Undergraduated of Informatics Telkom University</h5>
-          <img src="{{ obj.image_url }}" class="card-img-top" alt="{{ obj.title }}">
-          <h7 class="card-title"></h7><br>
-          <h7 class="card-title">2023 - now</h7>
+        <div class="col-7">
+          <<h2 style="margin-bottom: 20px;">Certification</h2>
+          <div>
+            {% for cert in certifications %}
+              <div class="row">
+                <div class="col">
+                  <div class="cardz" style="border: 3px solid #2F1F1C; width: 18rem; padding: 5% ; background-color :  #DDDDD4;">
+                    <h5 class="card-title">{{ cert.name }}</h5>
+                    <small>by {{ cert.organization }}</small>
+                    <h7 class="card-title"></h7><br>
+                    <small>{{ cert.issue_date }} - {{ cert.expiry_date }}</small>
+                  </div>
+                </div>
+                    <!-- {% if cert.url %}
+                        <p><a href="{{ cert.url }}" target="_blank">View Certificate</a></p>
+                    {% endif %} -->
+            {% endfor %}
+        </div>
         </div>
       </div>
     </div>
   </div>
 </body>
 </html>
-
-
-          
+{% endblock content %}

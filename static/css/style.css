@@ -25,12 +25,16 @@ h2 {
   font-weight: normal;
 }
 
+h5 {
+  font-weight: bold;
+}
+
 p {
   font-size: 1.25rem;
   text-align: justify;
 }
 
-button {
+.button-primary button {
   border: none;
   color: #DDDDD4;
   font-family: 'DM Sans';
@@ -45,9 +49,29 @@ button {
   transition-duration: 0.4s;
 }
 
-button:hover {
+.button-primary button:hover {
   color: #2F1F1C;
   background-color: #84847D;
+}
+
+.button-secondary button {
+  border: 5px solid #2F1F1C;
+  color: #2F1F1C;
+  font-family: 'DM Sans';
+  font-weight: bold;
+  background-color: #DDDDD4;
+  padding: 8px 4rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.button-secondary button:hover {
+  color: #DDDDD4;
+  background-color: #2F1F1C;
 }
 
 form {
@@ -55,17 +79,6 @@ form {
   margin:50px auto; 
 }
 
-.style-container {
-  margin-top: 5% !important;
-  margin-bottom: 5% !important;
-}
-
-.centered-form {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 .feedback-input {
   color:white;

@@ -6,6 +6,8 @@ from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 
+from .models import skills
+from .models import certification
 from .models import myprojects
 
 from .forms import ContactForm
@@ -17,7 +19,13 @@ def home(request):
     return render(request, 'pages/home.html')
 
 def aboutme(request):
-    return render(request, 'pages/aboutme.html')
+    all_skills = skills.objects.all()
+    all_certifications = certification.objects.all()
+    context = {
+        'skills': all_skills,
+        'certifications': all_certifications
+    }
+    return render(request, 'pages/aboutme.html', context)
 
 def projects(request):
     template_name = 'pages/projects.html'
@@ -28,7 +36,7 @@ def projects(request):
     return render(request, template_name, context)
 
 def projects_detail(request, slug):
-    template_name = 'pages/projects.html'
+    template_name = 'pages/projects_detail.html'
     obj = myprojects.objects.get(slug=slug)
     context = {
         "object": obj

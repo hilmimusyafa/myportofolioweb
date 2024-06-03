@@ -14,53 +14,48 @@
 <!-- Add icon library -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<!-- CSS Style -->
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+
 <!-- icon Image -->
 <link rel="icon" type="image/png" href="{% static 'img/snip/icon-mini.png' %}">
 
-<!-- CSS Style -->
-<link rel="stylesheet" href="{% static 'css/navstyle.css' %}">
-<link href="{% static 'css/style.css' %}" rel="stylesheet">
-
 <style>
 .styled-container div {
-  margin-top: 2%;
-  margin-bottom: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 .title-styled-container div {
-  margin-top: 0%;
-  margin-bottom: 2%;
+    margin-top: 0%;
+    margin-bottom: 2%;
 }
 </style>
 
-<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hilmi Musyafa</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Hilmi Musyafa</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 </head>
 <body>
-  <div class="container-fluid px-5 title-styled-container">
-    <div class="row">
-      <div class="col d-flex flex-column justify-content-center align-items-center">
-        <h1>Contact</h1>
-        <p>You can contact me with this form below</p>
-      </div>
-    </div>
-  </div> 
-  <div class="container-fluid px-5 my-5">
-    <div class="row">
+    <div class="container-fluid px-5 styled-container">
         <div class="container-xl">
-          <form method="post" style="max-width: 600px; width: 100%; margin: 0 auto;">
-          {% csrf_token %} 
-          {{ form.as_p }}
-          <div class="button-primary">
-            <button type="submit">Kirim</button>
-          </div>
-        </form>
+            <div class="row">
+                <div class="col-4">
+                    <img src="{{ object.image_url }}" class="img-fluid"></img>
+                </div>
+                <div class="col-8 d-flex align-items-start flex-column justify-content-center full-height">
+                    <h5>{{ object.year }}</h5>
+                    <h1>{{ object.title }}</h1>
+                    <h4></img>     {{ object.organization }}</h4>
+                    <!-- <img src="{{ object.imageorganization_url }}" class="img-fluid" style="height: 30px; width: 30px;"> -->
+                    <br>
+                    <p>{{ object.description }}</p>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </body>
-</html>
 {% endblock content %}
