@@ -1,5 +1,4 @@
-# Portfolio Website with Django
-
+# Personal Portfolio Website
 ![2](https://github.com/user-attachments/assets/a25f2389-673d-4143-a2e0-5e104fcde643)
 
 ## Description
